@@ -12,4 +12,7 @@ typedef struct Player{
     int health;
 } Player;
 Player *playerSetup();
+int playerMove(int y, int x, Player *user);
+
+
 #endif

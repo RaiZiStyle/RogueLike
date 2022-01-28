@@ -12,3 +12,12 @@ Player *playerSetup() {
 
     return newPlayer;
 }
+
+int playerMove(int y, int x, Player *user) {
+    mvprintw(user->yPosition, user->xPosition, ".");
+    user->yPosition = y;
+    user->xPosition = x;
+
+    mvprintw(user->yPosition, user->xPosition, "@");
+    move(user->yPosition, user->xPosition);
+}

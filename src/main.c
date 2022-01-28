@@ -13,7 +13,7 @@ int main(){
     user = playerSetup();
     
     // Main game loop
-    while ((ch = getch()) != 'q'){
+    while ((ch = getch()) != 0x1b){
         handleInput(ch, user);
 
     }
