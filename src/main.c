@@ -9,7 +9,6 @@ int main(){
     int ch;
 
     screenSetup();
-
     mapSetup();
     user = playerSetup();
     

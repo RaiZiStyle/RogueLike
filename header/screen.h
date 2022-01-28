@@ -1,6 +1,7 @@
 #ifndef SCREEN_H
+#define SCREEN_H
 
 #include <ncurses.h>
-#endif
 int screenSetup();
 int mapSetup();
+#endif
