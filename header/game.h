@@ -4,4 +4,5 @@
 #include "../header/screen.h"
 
 int handleInput(int input, Player *user);
+int checkPosition(int newY, int newX, Player *unit);
 #endif
