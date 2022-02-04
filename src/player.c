@@ -22,4 +22,6 @@ int playerMove(int y, int x, Player *user) {
 
     mvprintw(user->position.y, user->position.x, "@");
     move(user->position.y, user->position.x);
+
+    return 1;
 }
