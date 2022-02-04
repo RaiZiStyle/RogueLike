@@ -3,8 +3,8 @@
 Player *playerSetup() {
     Player *newPlayer;
     newPlayer = malloc(sizeof(Player));
-    newPlayer->xPosition = 14;
-    newPlayer->yPosition = 14;
+    newPlayer->position.x = 14;
+    newPlayer->position.y = 14;
     newPlayer->health = 20;
 
     // mvprintw(newPlayer->yPosition, newPlayer->xPosition, "@");
@@ -16,10 +16,10 @@ Player *playerSetup() {
 }
 
 int playerMove(int y, int x, Player *user) {
-    mvprintw(user->yPosition, user->xPosition, ".");
-    user->yPosition = y;
-    user->xPosition = x;
+    mvprintw(user->position.y, user->position.y, ".");
+    user->position.y= y;
+    user->position.x = x;
 
-    mvprintw(user->yPosition, user->xPosition, "@");
-    move(user->yPosition, user->xPosition);
+    mvprintw(user->position.y, user->position.x, "@");
+    move(user->position.y, user->position.x);
 }

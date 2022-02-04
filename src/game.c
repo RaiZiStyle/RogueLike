@@ -7,32 +7,32 @@ int handleInput(int input, Player *user) {
         // Move up
         case 'z':
         case 'Z':
-            newY = user->yPosition - 1;
-            newX= user->xPosition;
+            newY = user->position.y - 1;
+            newX= user->position.x;
             // playerMove(user->yPosition - 1, user->xPosition, user);
             /* code */
             break;
         // Move Down
         case 's':
         case 'S':
-            newY = user->yPosition + 1;
-            newX = user->xPosition;
+            newY = user->position.y + 1;
+            newX = user->position.x;
             // playerMove(user->yPosition + 1 , user->xPosition, user);
             /* code */
             break;
         // Move left
         case 'q':
         case 'Q':
-            newY = user->yPosition;
-            newX = user->xPosition - 1;
+            newY = user->position.y;
+            newX = user->position.x - 1;
             // playerMove(user->yPosition, user->xPosition- 1 , user);
             /* code */
             break;
         // Move right
         case 'd':
         case 'D':
-            newY = user->yPosition;
-            newX = user->xPosition + 1;
+            newY = user->position.y;
+            newX = user->position.x + 1;
             // playerMove(user->yPosition , user->xPosition + 1, user);
             /* code */
             break;
@@ -54,7 +54,7 @@ int checkPosition(int newY, int newX, Player *unit) {
             break;
 
         default:
-            move(unit->yPosition, unit->xPosition);
+            move(unit->position.y, unit->position.x);
             break;
     }
 }
