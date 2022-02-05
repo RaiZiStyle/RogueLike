@@ -1,6 +1,8 @@
+#ifndef MAIN_C
+
+#include "../header/game.h"
 #include "../header/screen.h"
 #include "../header/player.h"
-#include "../header/game.h"
 
 
 int main(){
@@ -22,3 +24,5 @@ int main(){
 
     return 1;
 }
+
+#endif

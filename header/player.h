@@ -7,11 +7,14 @@
 
 
 
+
 typedef struct Player{
     Position position;
     int health;
     // Room *room;
 } Player;
+
+
 Player *playerSetup();
 int playerMove(int y, int x, Player *user);
 
