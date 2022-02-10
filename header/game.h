@@ -1,6 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+
+
 typedef struct Position{
     int x;
     int y;
@@ -15,8 +17,10 @@ typedef struct Room{
     // Item **item;
 }Room;
 
+typedef struct Player Player;
 #include "../header/player.h"
 #include "../header/screen.h"
+
 
 
 int handleInput(int input, Player *user);

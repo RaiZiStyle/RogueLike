@@ -42,6 +42,8 @@ int handleInput(int input, Player *user) {
     }
 
     checkPosition(newY, newX, user);
+
+    return 1;
 }
 
 /* Check what is a next position */
@@ -57,4 +59,5 @@ int checkPosition(int newY, int newX, Player *unit) {
             move(unit->position.y, unit->position.x);
             break;
     }
+    return 1;
 }
