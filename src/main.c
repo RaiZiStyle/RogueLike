@@ -3,6 +3,7 @@
 #include "../header/game.h"
 #include "../header/screen.h"
 #include "../header/player.h"
+#include "../header/room.h"
 
 
 int main(){

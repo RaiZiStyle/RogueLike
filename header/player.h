@@ -3,7 +3,8 @@
 
 #include <stdlib.h>
 #include <ncurses.h>
-#include "../header/game.h"
+// #include "../header/game.h"
+#include "../header/position.h"
 
 
 
