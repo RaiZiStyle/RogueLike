@@ -16,12 +16,14 @@ Player *playerSetup() {
 }
 
 int playerMove(int y, int x, Player *user) {
-    mvprintw(user->position.y, user->position.y, ".");
+    mvprintw(user->position.y, user->position.x, ".");
     user->position.y= y;
     user->position.x = x;
+    // printf("user->position.x : %d, user->position.y: %d, x : %d, y : %d\n", user->position.x, user->position.y, x, y);
 
     mvprintw(user->position.y, user->position.x, "@");
     move(user->position.y, user->position.x);
+
 
     return 1;
 }

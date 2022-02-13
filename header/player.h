@@ -9,7 +9,7 @@
 
 
 
-typedef struct Player{
+typedef struct _Player{
     Position position;
     int health;
     // Room *room;

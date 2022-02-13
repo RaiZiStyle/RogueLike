@@ -1,4 +1,4 @@
-#include "../header/room.h" 
+#include "../header/room.h"
 
 Room **mapSetup() {
     Room **rooms;
@@ -44,7 +44,7 @@ Room *createRoom(int x, int y, int height, int width) {
         exit(0);
     }
     newRoom->position.x = x;
-    newRoom->position.y = y ;
+    newRoom->position.y = y;
     newRoom->height = height;
     newRoom->width = width;
     return newRoom;
@@ -53,12 +53,13 @@ Room *createRoom(int x, int y, int height, int width) {
 int drawRoom(Room *room) {
     int x, y;
     // draw top and bottom
-    for (x = room->position.x; x < room->position.x+ room->width; x++) {
-        mvprintw(room->position.x, x, "-");                     // Top
+    for (x = room->position.x; x < room->position.x + room->width; x++) {
+        mvprintw(room->position.y, x, "-");                     // Top
         mvprintw(room->position.y + room->height - 1, x, "-");  // Bottom
     }
     // draw floors and side walls
-    for (y = room->position.y+ 1; y < room->position.y + room->height - 1; y++) {
+    for (y = room->position.y + 1; y < room->position.y + room->height - 1;
+         y++) {
         // draw side walls
         mvprintw(y, room->position.x, "|");
         mvprintw(y, room->position.x + room->width - 1, "|");

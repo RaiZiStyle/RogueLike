@@ -3,6 +3,7 @@
 
 #include <stdio.h>  
 #include <stdlib.h> // Malloc
+#include <ncurses.h>
 #include "../header/position.h"
 
 typedef struct _Room{
