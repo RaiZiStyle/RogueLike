@@ -47,6 +47,34 @@ Room *createRoom(int x, int y, int height, int width) {
     newRoom->position.y = y;
     newRoom->height = height;
     newRoom->width = width;
+
+
+
+    newRoom->doors = malloc(sizeof(Position) * 4 );
+    if (newRoom->doors == NULL){
+        printf("Error! Memory not allocated.");
+        exit(0);
+    }
+    // Top door
+    newRoom->doors[0] = malloc(sizeof(Position));
+    newRoom->doors[0]->x =  rand() % (width - 2) + newRoom->position.x + 1;
+    newRoom->doors[0]->y =  newRoom->position.y;
+
+    // Bottom door
+    newRoom->doors[1] = malloc(sizeof(Position));
+    newRoom->doors[1]->x =  rand() % (width - 2) + newRoom->position.x + 1;
+    newRoom->doors[1]->y =  newRoom->position.y + newRoom->height - 1;
+
+    // Left door
+    newRoom->doors[2] = malloc(sizeof(Position));
+    newRoom->doors[2]->y =  rand() % (height - 2) + newRoom->position.y + 1;
+    newRoom->doors[2]->x =  newRoom->position.x;
+
+    // Right door
+    newRoom->doors[3] = malloc(sizeof(Position));
+    newRoom->doors[3]->y =  rand() % (height -2 ) + newRoom->position.y + 1;
+    newRoom->doors[3]->x =  newRoom->position.x + width - 1;
+
     return newRoom;
 }
 
@@ -69,8 +97,13 @@ int drawRoom(Room *room) {
             mvprintw(y, x, ".");
         }
 
-        /* code */
     }
+
+    // Draw doors
+    mvprintw(room->doors[0]->y,room->doors[0]->x, "+");
+    mvprintw(room->doors[1]->y,room->doors[1]->x, "+");
+    mvprintw(room->doors[2]->y,room->doors[2]->x, "+");
+    mvprintw(room->doors[3]->y,room->doors[3]->x, "+"); 
 
     return 1;
 }

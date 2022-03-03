@@ -11,6 +11,7 @@ int main(){
     Player *user;
     int ch;
 
+    srand(time(NULL));
     screenSetup();
     mapSetup();
     user = playerSetup();

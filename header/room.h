@@ -4,10 +4,12 @@
 #include <stdio.h>  
 #include <stdlib.h> // Malloc
 #include <ncurses.h>
+#include <time.h>
 #include "../header/position.h"
 
 typedef struct _Room{
     Position position;
+    Position **doors;
     int height;
     int width;
     // Monster **monster;
