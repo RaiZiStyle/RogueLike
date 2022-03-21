@@ -1,6 +1,6 @@
 # CC=x86_64-w64-mingw32-gcc
-CC=gcc
-CFLAGS=-Wall
+CC=gcc 
+CFLAGS=-Wall -g
 # LDFLAGS=-lssl -lcrypto
 LDFLAGS=-lncurses
 SRCDIR=src
