@@ -166,19 +166,19 @@ int connectDoors(Position *doorOne, Position *doorTwo) {
 
 char **saveLevelPosition() {
     int x, y;
-    char **position;
+    char **positions;
 
-    position = malloc(sizeof(char *) * 25);
+    positions = malloc(sizeof(char *) * 25);
 
-    for (y = 0; y < sizeof(25); y++) {
-        position[y] = malloc(sizeof(char) * 100);
-        for (x = 0; x < sizeof(100); x++) {
-            position[y][x] = mvinch(y, x);
+    for (y = 0; y < 25; y++) {
+        positions[y] = malloc(sizeof(char) * 100);
+        for (x = 0; x < 100; x++) {
+            positions[y][x] = mvinch(y, x);
             /* code */
         }
 
         /* code */
     }
 
-    return position;
+    return positions;
 }
