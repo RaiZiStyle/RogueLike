@@ -20,7 +20,10 @@ Player *playerSetup() {
 int playerMove(Position *newPosition, Player *user, char **level) {
     char buffer[8];
     
+    // Used to convert a char into char*
+    // AKA: Converting 'x' into "x"
     sprintf(buffer,"%c", level[user->position.y][user->position.x]);
+
     mvprintw(user->position.y, user->position.x, buffer);
     user->position.y= newPosition->y;
     user->position.x = newPosition->x;
