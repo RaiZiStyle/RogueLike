@@ -33,6 +33,7 @@ Room **mapSetup() {
     drawRoom(rooms[2]);
 
     connectDoors(rooms[0]->doors[3], rooms[2]->doors[1]);
+    connectDoors(rooms[1]->doors[2], rooms[2]->doors[0]);
 
     return rooms;
 }
@@ -111,38 +112,73 @@ int drawRoom(Room *room) {
 
 int connectDoors(Position *doorOne, Position *doorTwo) {
     Position temp;
+    Position previous;
+    int count = 0;
+
     temp.x = doorOne->x;
     temp.y = doorOne->y;
 
-     while (true) {
-         // Step left
-         if ((abs((temp.x - 1) - doorTwo->x) < abs(temp.x - doorTwo->x)) &&
-             (mvinch(temp.y, temp.x - 1) == ' ')) {
-             mvprintw(temp.y, temp.x - 1, "#");
-             temp.x = temp.x - 1;
-         // Step right
-         } else if ((abs((temp.x + 1) - doorTwo->x) <
-                     abs(temp.x - doorTwo->x)) &&
-                    (mvinch(temp.y, temp.x + 1) == ' ')) {
-             mvprintw(temp.y, temp.x + 1, "#");
-             temp.x = temp.x + 1;
-         // Step down
-         } else if ((abs((temp.y + 1) - doorTwo->y) <
-                     abs(temp.y - doorTwo->y)) &&
-                    (mvinch(temp.y + 1, temp.x) == ' ')) {
-             mvprintw(temp.y + 1, temp.x, "#");
-             temp.y = temp.y + 1;
-         // Step up
-         } else if ((abs((temp.y - 1) - doorTwo->y) <
-                     abs(temp.y - doorTwo->y)) &&
-                    (mvinch(temp.y - 1, temp.x) == ' ')) {
-             mvprintw(temp.y - 1, temp.x, "#");
-             temp.y = temp.y - 1;
-         }else {
-             return 0;
-         }
-         getch();
-     }
+    previous = temp;
+    while (true) {
+        // Step left
+        if ((abs((temp.x - 1) - doorTwo->x) < abs(temp.x - doorTwo->x)) &&
+            (mvinch(temp.y, temp.x - 1) == ' ')) {
+            previous.x = temp.x;
+            // mvprintw(temp.y, temp.x - 1, "#");
+            temp.x = temp.x - 1;
+            // Step right
+        } else if ((abs((temp.x + 1) - doorTwo->x) <
+                    abs(temp.x - doorTwo->x)) &&
+                   (mvinch(temp.y, temp.x + 1) == ' ')) {
+            previous.x = temp.x;
+            // mvprintw(temp.y, temp.x + 1, "#");
+            temp.x = temp.x + 1;
+            // Step down
+        } else if ((abs((temp.y + 1) - doorTwo->y) <
+                    abs(temp.y - doorTwo->y)) &&
+                   (mvinch(temp.y + 1, temp.x) == ' ')) {
+            previous.y = temp.y;
+            // mvprintw(temp.y + 1, temp.x, "#");
+            temp.y = temp.y + 1;
+            // Step up
+        } else if ((abs((temp.y - 1) - doorTwo->y) <
+                    abs(temp.y - doorTwo->y)) &&
+                   (mvinch(temp.y - 1, temp.x) == ' ')) {
+            previous.y = temp.y;
+            // mvprintw(temp.y - 1, temp.x, "#");
+            temp.y = temp.y - 1;
+        } else {
+            // Step back
+            if (count == 0) {
+                temp = previous;
+                count++;
+                continue;
+            } else {
+                return 0;
+            }
+        }
+        mvprintw(temp.y, temp.x, "#");
+        // getch();
+    }
 
     return 1;
+}
+
+char **saveLevelPosition() {
+    int x, y;
+    char **position;
+
+    position = malloc(sizeof(char *) * 25);
+
+    for (y = 0; y < sizeof(25); y++) {
+        position[y] = malloc(sizeof(char) * 100);
+        for (x = 0; x < sizeof(100); x++) {
+            position[y][x] = mvinch(y, x);
+            /* code */
+        }
+
+        /* code */
+    }
+
+    return position;
 }

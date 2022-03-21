@@ -15,6 +15,8 @@
 
 ## Game design
 - Make doors lock && lockable
+- Add random to the hallway 
+    > By making a switch case of range from one to 10, and make the x move if rand is between 1 to 7). Not sure it will work tho
 
 ### Abbility
 - Lockpicking

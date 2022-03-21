@@ -10,15 +10,20 @@ Player *playerSetup() {
     // mvprintw(newPlayer->yPosition, newPlayer->xPosition, "@");
     // move(newPlayer->yPosition, newPlayer->xPosition);
 
-    playerMove(14,14, newPlayer);
+    //playerMove(14,14, newPlayer);
+    mvprintw(newPlayer->position.y,newPlayer->position.x, "@");
+    move(newPlayer->position.y,newPlayer->position.x);
 
     return newPlayer;
 }
 
-int playerMove(int y, int x, Player *user) {
-    mvprintw(user->position.y, user->position.x, ".");
-    user->position.y= y;
-    user->position.x = x;
+int playerMove(Position *newPosition, Player *user, char **level) {
+    char buffer[8];
+    
+    sprintf(buffer,"%c", level[user->position.y][user->position.x]);
+    mvprintw(user->position.y, user->position.x, buffer);
+    user->position.y= newPosition->y;
+    user->position.x = newPosition->x;
     // printf("user->position.x : %d, user->position.y: %d, x : %d, y : %d\n", user->position.x, user->position.y, x, y);
 
     mvprintw(user->position.y, user->position.x, "@");

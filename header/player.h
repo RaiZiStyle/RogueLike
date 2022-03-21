@@ -17,7 +17,7 @@ typedef struct _Player{
 
 
 Player *playerSetup();
-int playerMove(int y, int x, Player *user);
+int playerMove(Position *newPosition, Player *user, char **level);
 
 
 #endif

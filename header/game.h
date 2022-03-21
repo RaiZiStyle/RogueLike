@@ -4,6 +4,6 @@
 #include "../header/player.h"
 
 
-int handleInput(int input, Player *user);
-int checkPosition(int newY, int newX, Player *unit);
+Position *handleInput(int input, Player *user);
+int checkPosition(Position *newPosition, Player *unit, char **level);
 #endif

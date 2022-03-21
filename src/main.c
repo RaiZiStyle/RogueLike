@@ -9,16 +9,21 @@
 int main(){
     // Initialisation 
     Player *user;
+    Position *newPosition;
+    char **level;
     int ch;
 
     srand(time(NULL));
     screenSetup();
     mapSetup();
+    level = saveLevelPosition();
+
     user = playerSetup();
     
     // Main game loop
     while ((ch = getch()) != 0x1b){
-        handleInput(ch, user);
+        newPosition = handleInput(ch, user);
+        checkPosition(newPosition, user, level);
 
     }
 

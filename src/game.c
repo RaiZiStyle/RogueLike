@@ -1,38 +1,41 @@
 #include "../header/game.h"
 
-int handleInput(int input, Player *user) {
-    int newY;
-    int newX;
+Position *handleInput(int input, Player *user) {
+    Position *newPosition;
+
+    newPosition = malloc(sizeof(Position));
+    if (newPosition == NULL){printf("Error in malloc"); exit(1);}
+
     switch (input) {
         // Move up
         case 'z':
         case 'Z':
-            newY = user->position.y - 1;
-            newX= user->position.x;
+            newPosition->y = user->position.y - 1;
+            newPosition->x= user->position.x;
             // playerMove(user->yPosition - 1, user->xPosition, user);
             /* code */
             break;
         // Move Down
         case 's':
         case 'S':
-            newY = user->position.y + 1;
-            newX = user->position.x;
+            newPosition->y = user->position.y + 1;
+            newPosition->x = user->position.x;
             // playerMove(user->yPosition + 1 , user->xPosition, user);
             /* code */
             break;
         // Move left
         case 'q':
         case 'Q':
-            newY = user->position.y;
-            newX = user->position.x - 1;
+            newPosition->y = user->position.y;
+            newPosition->x = user->position.x - 1;
             // playerMove(user->yPosition, user->xPosition- 1 , user);
             /* code */
             break;
         // Move right
         case 'd':
         case 'D':
-            newY = user->position.y;
-            newX = user->position.x + 1;
+            newPosition->y= user->position.y;
+            newPosition->x = user->position.x + 1;
             // playerMove(user->yPosition , user->xPosition + 1, user);
             /* code */
             break;
@@ -41,20 +44,20 @@ int handleInput(int input, Player *user) {
             break;
     }
 
-    checkPosition(newY, newX, user);
+    //checkPosition(newPosition, user);
 
-    return 1;
+    return newPosition;
 }
 
 /* Check what is a next position */
-int checkPosition(int newY, int newX, Player *unit) {
+int checkPosition(Position *newPosition, Player *unit, char **level) {
     //int space;
     // mvinch will return a char of the current position of cursor
-    switch (mvinch(newY, newX)) {
+    switch (mvinch(newPosition->y, newPosition->x)) {
         case '#':
         case '+':
         case '.':
-            playerMove(newY, newX, unit);
+            playerMove(newPosition, unit, level);
             break;
 
         default:
