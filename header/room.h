@@ -20,5 +20,6 @@ typedef struct _Room{
 Room **mapSetup();
 Room *createRoom(int x, int y, int height, int width);
 int drawRoom(Room *room);
+int connectDoors(Position *doorOne, Position *doorTwo);
 
 #endif

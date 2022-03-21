@@ -48,7 +48,7 @@ int handleInput(int input, Player *user) {
 
 /* Check what is a next position */
 int checkPosition(int newY, int newX, Player *unit) {
-    int space;
+    //int space;
     // mvinch will return a char of the current position of cursor
     switch (mvinch(newY, newX)) {
         case '.':
