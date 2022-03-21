@@ -32,7 +32,7 @@ Room **mapSetup() {
     rooms[2] = createRoom(40, 10, 6, 12);
     drawRoom(rooms[2]);
 
-    connectDoors(rooms[0]->doors[3], rooms[3]->doors[1]);
+    connectDoors(rooms[0]->doors[3], rooms[2]->doors[1]);
 
     return rooms;
 }
@@ -114,35 +114,35 @@ int connectDoors(Position *doorOne, Position *doorTwo) {
     temp.x = doorOne->x;
     temp.y = doorOne->y;
 
-    // while (true) {
-    //     // Step left
-    //     if ((abs((temp.x - 1) - doorTwo->x) < abs(temp.x - doorTwo->x)) &&
-    //         (mvinch(temp.y, temp.x - 1) == ' ')) {
-    //         mvprintw(temp.y, temp.x - 1, "#");
-    //         temp.x = temp.x - 1;
-    //     // Step right
-    //     } else if ((abs((temp.x + 1) - doorTwo->x) <
-    //                 abs(temp.x - doorTwo->x)) &&
-    //                (mvinch(temp.y, temp.x + 1) == ' ')) {
-    //         mvprintw(temp.y, temp.x + 1, "#");
-    //         temp.x = temp.x + 1;
-    //     // Step down
-    //     } else if ((abs((temp.y + 1) - doorTwo->y) <
-    //                 abs(temp.y - doorTwo->y)) &&
-    //                (mvinch(temp.y + 1, temp.x) == ' ')) {
-    //         mvprintw(temp.y + 1, temp.x, "#");
-    //         temp.y = temp.y + 1;
-    //     // Step up
-    //     } else if ((abs((temp.y - 1) - doorTwo->y) <
-    //                 abs(temp.y - doorTwo->y)) &&
-    //                (mvinch(temp.y - 1, temp.x) == ' ')) {
-    //         mvprintw(temp.y - 1, temp.x, "#");
-    //         temp.y = temp.y - 1;
-    //     }else {
-    //         return 0;
-    //     }
-    //     getch();
-    // }
+     while (true) {
+         // Step left
+         if ((abs((temp.x - 1) - doorTwo->x) < abs(temp.x - doorTwo->x)) &&
+             (mvinch(temp.y, temp.x - 1) == ' ')) {
+             mvprintw(temp.y, temp.x - 1, "#");
+             temp.x = temp.x - 1;
+         // Step right
+         } else if ((abs((temp.x + 1) - doorTwo->x) <
+                     abs(temp.x - doorTwo->x)) &&
+                    (mvinch(temp.y, temp.x + 1) == ' ')) {
+             mvprintw(temp.y, temp.x + 1, "#");
+             temp.x = temp.x + 1;
+         // Step down
+         } else if ((abs((temp.y + 1) - doorTwo->y) <
+                     abs(temp.y - doorTwo->y)) &&
+                    (mvinch(temp.y + 1, temp.x) == ' ')) {
+             mvprintw(temp.y + 1, temp.x, "#");
+             temp.y = temp.y + 1;
+         // Step up
+         } else if ((abs((temp.y - 1) - doorTwo->y) <
+                     abs(temp.y - doorTwo->y)) &&
+                    (mvinch(temp.y - 1, temp.x) == ' ')) {
+             mvprintw(temp.y - 1, temp.x, "#");
+             temp.y = temp.y - 1;
+         }else {
+             return 0;
+         }
+         getch();
+     }
 
     return 1;
 }

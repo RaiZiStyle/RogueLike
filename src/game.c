@@ -51,6 +51,8 @@ int checkPosition(int newY, int newX, Player *unit) {
     //int space;
     // mvinch will return a char of the current position of cursor
     switch (mvinch(newY, newX)) {
+        case '#':
+        case '+':
         case '.':
             playerMove(newY, newX, unit);
             break;
